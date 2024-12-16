@@ -18,8 +18,8 @@ for k = 6:kMax
     cphi2(k) = 1-(1/(u1'*x1)/(u1'*x2))^2;
 
     n = size(K,1);
-    nu_max = eigs(@(x) K*(B(x)),size(K,1),1,'largestreal','IsFunctionSymmetric',1);
-    nu_min = eigs(@(x) K*(B(x)),size(K,1),1,'smallestreal','IsFunctionSymmetric',1);
+    nu_max = eigs(@(x) K*(B(x)),size(K,1),1,'largestreal');
+    nu_min = eigs(@(x) K*(B(x)),size(K,1),1,'smallestreal');
     kappa_nu = nu_max/nu_min;
     boundkappa(k) = 1-1/kappa_nu;
 
