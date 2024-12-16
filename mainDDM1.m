@@ -1,6 +1,4 @@
-clear all
-close all
-global K B
+rng(1)
 warning('off');
 addpath(genpath(pwd))
 NMax = 6;
@@ -16,8 +14,8 @@ for N = 2:NMax
     [x2,~] = pcg(@(x) B(x),u1,[],[],@(x) K*x); % B*u1
     cphi2(N) = 1-1/((u1'*M*x1)*(u1'*x2));
 
-    nu_max = eigs('ABinv',size(K,1),1,'largestabs','IsFunctionSymmetric',1);
-    [~,nu_min] = lobpcg(x2,'ABinv');
+    nu_max = eigs(@(x) K*(B(x)),size(K,1),1,'largestreal');
+    nu_min = eigs(@(x) K*(B(x)),size(K,1),1,'smallestreal');
     kappa_nu = nu_max/nu_min;
     boundkappa(N) = 1-1/kappa_nu;
     toc
@@ -45,8 +43,8 @@ for n = 2:nMax
     [x2,~] = pcg(@(x) B(x),u1,[],[],@(x) K*x); % B*u1
     cphi2(n) = 1-1/((u1'*M*x1)*(u1'*x2));
 
-    nu_max = eigs('ABinv',size(K,1),1,'largestabs','IsFunctionSymmetric',1);
-    [~,nu_min] = lobpcg(x2,'ABinv');
+    nu_max = eigs(@(x) K*(B(x)),size(K,1),1,'largestreal');
+    nu_min = eigs(@(x) K*(B(x)),size(K,1),1,'smallestreal');
     kappa_nu = nu_max/nu_min;
     boundkappa(n) = 1-1/kappa_nu;
     toc
