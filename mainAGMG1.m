@@ -3,7 +3,6 @@ rng(1)
 kMax = 10;
 cphi2 = zeros(1,kMax);
 boundkappa = zeros(1,kMax);
-global K B
 for k = 6:kMax
     n = 2^k-2;
     e = ones(n,1);
@@ -19,8 +18,8 @@ for k = 6:kMax
     cphi2(k) = 1-(1/(u1'*x1)/(u1'*x2))^2;
 
     n = size(K,1);
-    nu_max = eigs('ABinv',n,1,'largestabs','IsFunctionSymmetric',1);
-    [~,nu_min] = lobpcg(x2,'ABinv');
+    nu_max = eigs(@(x) K*(B(x)),size(K,1),1,'largestreal','IsFunctionSymmetric',1);
+    nu_min = eigs(@(x) K*(B(x)),size(K,1),1,'smallestreal','IsFunctionSymmetric',1);
     kappa_nu = nu_max/nu_min;
     boundkappa(k) = 1-1/kappa_nu;
 
