@@ -1,4 +1,4 @@
-ng(1)
+rng(1)
 lenN = 4;
 EPSet = zeros(4,lenN);
 for iterMat = 1:2
