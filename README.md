@@ -2,7 +2,7 @@
 
 This repo contains the MATLAB code to reproduce the numerical experiments described in [1]. The implementation relies on MATLAB packages [2, 3], which users need to download independently.
 
-Run main.m to produce all numerical results.
+Run main.m to reproduce all numerical results.
 
 Run mainDDM1.m and mainAGMG1.m to generate tables about Behaviors of $\varphi$.
 
