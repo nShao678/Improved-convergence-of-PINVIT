@@ -41,5 +41,5 @@ for k = 6:kMax
     toc
 
 end
-latex(sym(EP(:,6:10)))
+% latex(sym(EP(:,6:10)))
 save('dataEPAGMG','EP')

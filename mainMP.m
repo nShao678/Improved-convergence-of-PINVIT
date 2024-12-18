@@ -52,5 +52,5 @@ EPSet(2*iterMat,iterN) = sum(Theta(1:ii)>cphi2)/m;
 
 end
 end
-
-latex(sym(EPSet))
+save('dataMP','EPSet')
+% latex(sym(EPSet))

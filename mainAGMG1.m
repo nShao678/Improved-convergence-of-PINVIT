@@ -18,13 +18,13 @@ for k = 6:kMax
     cphi2(k) = 1-(1/(u1'*x1)/(u1'*x2))^2;
 
     n = size(K,1);
-    nu_max = eigs(@(x) K*(B(K*x)),size(K,1),K,1,'largestreal','IsSymmetricDefinite',1);
-    nu_min = eigs(@(x) K*(B(K*x)),size(K,1),K,1,'smallestreal','IsSymmetricDefinite',1);
+    nu_max = eigs(@(x) K*(B(K*x)),size(K,1),K,1,'largestreal','IsSymmetricDefinite',1,'IsFunctionSymmetric',1,'Tolerance',1e-4);
+    nu_min = eigs(@(x) K*(B(K*x)),size(K,1),K,1,'smallestreal','IsSymmetricDefinite',1,'IsFunctionSymmetric',1,'Tolerance',1e-4);
     kappa_nu = nu_max/nu_min;
     boundkappa(k) = 1-1/kappa_nu;
 
 end
-latex(sym(cphi2(6:10)))
-latex(sym(boundkappa(6:10)))
-latex(sym(cphi2(6:10)./boundkappa(6:10)))
+% latex(sym(cphi2(6:10)))
+% latex(sym(boundkappa(6:10)))
+% latex(sym(cphi2(6:10)./boundkappa(6:10)))
 save('dataAGMG1','cphi2','boundkappa')
