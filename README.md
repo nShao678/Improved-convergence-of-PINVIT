@@ -9,7 +9,7 @@ Run mainDDM1.m and mainAGMG1.m to generate tables about Behaviors of $\varphi$.
 Run mainDDM2.m, mainAGMG2.m and mainMP.m to generate tables about empirical probability tests.
 
 
-[1]: Foivos Alimisis, Daniel Kressner, Nian Shao and Bart Vandereycken (2024). A preconditioned inverse iteration with an improved convergence guarantee.
+[1]: Foivos Alimisis, Daniel Kressner, Nian Shao and Bart Vandereycken (2024). A preconditioned inverse iteration with an improved convergence guarantee. 	arXiv:2412.14665
 
 [2]: Yvan Notay. AGMG software and documentation; see http://agmg.eu
 
